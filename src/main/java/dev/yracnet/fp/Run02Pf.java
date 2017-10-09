@@ -30,7 +30,7 @@ public class Run02Pf {
 		List<Cliente> clienteList = Arrays.asList(a, b, c, d);
 
 		System.out.println("Masculino & Nombre contiene la letra 'o'");
-		List<Cliente> clienteListA = clienteList.stream()
+		List<Cliente> clienteListA = clienteList.parallelStream()
 										.filter(x -> {
 											return x.getGenero() == Genero.MASCULINO;
 										})
@@ -41,7 +41,7 @@ public class Run02Pf {
 		clienteListA.forEach(System.out::println);
 
 		System.out.println("Femenino & hotmail");
-		List<Cliente> clienteListB = clienteList.stream()
+		List<Cliente> clienteListB = clienteList.parallelStream()
 										.filter(x -> {
 											return x.getGenero() == Genero.FEMENINO;
 										})
