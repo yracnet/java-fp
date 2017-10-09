@@ -22,10 +22,8 @@ public class Run01 {
 		Cliente d = new Cliente("Ximena", "ximena@hotmail.com", Genero.FEMENINO);
 
 		List<Cliente> clienteList = Arrays.asList(a, b, c, d);
-		System.out.println("==============");		
-		for(Cliente cliente : clienteList){
-			System.out.println(cliente);
-		}
+		System.out.println("==============");
+		clienteList.forEach(System.out::println);
 
 	}
 
