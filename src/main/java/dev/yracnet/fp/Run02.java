@@ -22,9 +22,11 @@ public class Run02 {
 		Cliente c = new Cliente("Rolando", "rolando@gmail.com", Genero.MASCULINO);
 		Cliente d = new Cliente("Ximena", "ximena@hotmail.com", Genero.FEMENINO);
 		List<Cliente> clienteList = Arrays.asList(a, b, c, d);
+		
 		System.out.println("Masculino & all");
 		List<Cliente> clienteListA = filtrarCliente(clienteList, Genero.MASCULINO, null);
 		clienteListA.forEach(System.out::println);
+		
 		System.out.println("Femenino & gmail");
 		List<Cliente> clienteListB = filtrarCliente(clienteList, Genero.FEMENINO, "hotmail.com");
 		clienteListB.forEach(System.out::println);
