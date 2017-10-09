@@ -22,15 +22,18 @@ public class Run01 {
 		Cliente d = new Cliente("Ximena", "ximena@hotmail.com", Genero.FEMENINO);
 		List<Cliente> clienteList = Arrays.asList(a, b, c, d);
 		System.out.println("==============");
-		clienteList.forEach(Run01::printCliente);
+		clienteList.forEach(
+										cliente -> {
+											printCliente(cliente);
+										}
+		);
 	}
-	
-	public static void printCliente(Cliente cliente){
+
+	public static void printCliente(Cliente cliente) {
 		System.out.println("-----------------");
 		System.out.println("Nombre: " + cliente.getNombre());
 		System.out.println("Correo: " + cliente.getCorreo());
 		System.out.println("Genero: " + cliente.getGenero());
 	}
-	
 
 }
