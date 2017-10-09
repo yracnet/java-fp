@@ -31,40 +31,18 @@ public class Run02Pf {
 
 		System.out.println("Masculino & Nombre contiene la letra 'o'");
 		List<Cliente> clienteListA = clienteList.parallelStream()
-										.filter(x -> {
-											return x.getGenero() == Genero.MASCULINO;
-										})
-										.filter(x -> {
-											return x.getNombre().contains("o");
-										})
+										.filter(x -> x.getGenero() == Genero.MASCULINO)
+										.filter(x -> x.getNombre().contains("o"))
 										.collect(Collectors.toList());
 		clienteListA.forEach(System.out::println);
 
 		System.out.println("Femenino & hotmail");
 		List<Cliente> clienteListB = clienteList.parallelStream()
-										.filter(x -> {
-											return x.getGenero() == Genero.FEMENINO;
-										})
-										.filter(x -> {
-											return x.getCorreo().endsWith("hotmail.com");
-										})
+										.filter(x -> x.getGenero() == Genero.FEMENINO)
+										.filter(x -> x.getCorreo().endsWith("hotmail.com"))
 										.collect(Collectors.toList());
 		clienteListB.forEach(System.out::println);
 
-	}
-
-	private static List<Cliente> filtrarCliente(List<Cliente> clienteList, Filtro... filtroList) {
-		List<Cliente> resultList = new ArrayList<>();
-		for (Cliente cliente : clienteList) {
-			boolean incluir = true;
-			for (Filtro filtro : filtroList) {
-				incluir = incluir && filtro.incluir(cliente);
-			}
-			if (incluir) {
-				resultList.add(cliente);
-			}
-		}
-		return resultList;
 	}
 
 }
