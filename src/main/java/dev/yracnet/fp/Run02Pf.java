@@ -48,7 +48,7 @@ public class Run02Pf {
 		Predicate<Cliente> f3 = cliente -> {
 			return cliente.getCorreo().endsWith("hotmail.com");
 		};
-		System.out.println("Femenino & gmail");
+		System.out.println("Femenino & hotmail");
 		List<Cliente> clienteListB = clienteList.parallelStream()
 																																										.filter(f2)
 																																										.filter(f3)
