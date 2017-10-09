@@ -29,30 +29,26 @@ public class Run02Pf {
 		Cliente d = new Cliente("Ximena", "ximena@hotmail.com", Genero.FEMENINO);
 		List<Cliente> clienteList = Arrays.asList(a, b, c, d);
 
-		Predicate<Cliente> f1 = cliente -> {
-			return cliente.getGenero() == Genero.MASCULINO;
-		};
-		Predicate<Cliente> f1x = cliente -> {
-			return cliente.getNombre().contains("o");
-		};
 		System.out.println("Masculino & Nombre contiene la letra 'o'");
-		List<Cliente> clienteListA = clienteList.parallelStream()
-																																										.filter(f1)
-																																										.filter(f1x)
-																																										.collect(Collectors.toList());
+		List<Cliente> clienteListA = clienteList.stream()
+										.filter(x -> {
+											return x.getGenero() == Genero.MASCULINO;
+										})
+										.filter(x -> {
+											return x.getNombre().contains("o");
+										})
+										.collect(Collectors.toList());
 		clienteListA.forEach(System.out::println);
 
-		Predicate<Cliente> f2 = cliente -> {
-			return cliente.getGenero() == Genero.FEMENINO;
-		};
-		Predicate<Cliente> f3 = cliente -> {
-			return cliente.getCorreo().endsWith("hotmail.com");
-		};
 		System.out.println("Femenino & hotmail");
-		List<Cliente> clienteListB = clienteList.parallelStream()
-																																										.filter(f2)
-																																										.filter(f3)
-																																										.collect(Collectors.toList());
+		List<Cliente> clienteListB = clienteList.stream()
+										.filter(x -> {
+											return x.getGenero() == Genero.FEMENINO;
+										})
+										.filter(x -> {
+											return x.getCorreo().endsWith("hotmail.com");
+										})
+										.collect(Collectors.toList());
 		clienteListB.forEach(System.out::println);
 
 	}
