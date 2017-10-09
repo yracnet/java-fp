@@ -22,20 +22,22 @@ public class Run02 {
 		Cliente c = new Cliente("Rolando", "rolando@gmail.com", Genero.MASCULINO);
 		Cliente d = new Cliente("Ximena", "ximena@hotmail.com", Genero.FEMENINO);
 		List<Cliente> clienteList = Arrays.asList(a, b, c, d);
-		
-		List<Cliente> clienteMasculinoList = filtrarGenero(clienteList, Genero.MASCULINO);
-		clienteMasculinoList.forEach(System.out::println);
-		
-		List<Cliente> clienteFemeninoList = filtrarGenero(clienteList, Genero.FEMENINO);
-		clienteFemeninoList.forEach(System.out::println);
-	
+		System.out.println("Masculino & all");
+		List<Cliente> clienteListA = filtrarCliente(clienteList, Genero.MASCULINO, null);
+		clienteListA.forEach(System.out::println);
+		System.out.println("Femenino & gmail");
+		List<Cliente> clienteListB = filtrarCliente(clienteList, Genero.FEMENINO, "hotmail.com");
+		clienteListB.forEach(System.out::println);
+
 	}
 
-	private static List<Cliente> filtrarGenero(List<Cliente> clienteList, Genero genero) {
+	private static List<Cliente> filtrarCliente(List<Cliente> clienteList, Genero genero, String correo) {
 		List<Cliente> resultList = new ArrayList<>();
 		for (Cliente cliente : clienteList) {
 			if (cliente.getGenero() == genero) {
-				resultList.add(cliente);
+				if (cliente.getCorreo().endsWith(correo) || correo == null) {
+					resultList.add(cliente);
+				}
 			}
 		}
 		return resultList;
