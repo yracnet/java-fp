@@ -6,6 +6,8 @@ package dev.yracnet.fp;
 
 import dev.yracnet.fp.modelo.Cliente;
 import dev.yracnet.fp.modelo.Cliente.Genero;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  *
@@ -19,9 +21,9 @@ public class Run01 {
 		Cliente c = new Cliente("Rolando", "rolando@gmail.com", Genero.MASCULINO);
 		Cliente d = new Cliente("Ximena", "ximena@hotmail.com", Genero.FEMENINO);
 
-		Cliente clienteArray[] = new Cliente[]{a, b, c, d};
-		System.out.println("==============");
-		for(Cliente cliente : clienteArray){
+		List<Cliente> clienteList = Arrays.asList(a, b, c, d);
+		System.out.println("==============");		
+		for(Cliente cliente : clienteList){
 			System.out.println(cliente);
 		}
 
