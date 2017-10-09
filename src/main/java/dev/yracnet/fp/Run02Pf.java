@@ -38,11 +38,14 @@ public class Run02Pf {
 
 		System.out.println("Femenino & hotmail");
 		List<Cliente> clienteListB = clienteList.parallelStream()
-										.filter(x -> x.getGenero() == Genero.FEMENINO)
-										.filter(x -> x.getCorreo().endsWith("hotmail.com"))
+										.filter(Run02Pf::filtroB)
 										.collect(Collectors.toList());
 		clienteListB.forEach(System.out::println);
 
+	}
+
+	public static boolean filtroB(Cliente cliente) {
+		return cliente.getGenero() == Genero.FEMENINO && cliente.getCorreo().endsWith("hotmail.com");
 	}
 
 }
