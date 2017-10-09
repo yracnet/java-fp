@@ -25,9 +25,10 @@ public class Run03 {
 		List<Cliente> clienteList = Arrays.asList(a, b, c, d);
 
 		System.out.println("Listado de cliente ");
-		List<Cliente> clienteListA = clienteList.stream()
+		List<String> clienteListA = clienteList.stream()
 										.filter(x -> x.getGenero() == Genero.FEMENINO)
 										.filter(x -> x.getCorreo().endsWith("gmail.com"))
+										.map(x -> x.getCorreo()) //Mapea la lista a correo
 										.collect(Collectors.toList());
 		clienteListA.forEach(System.out::println);
 
