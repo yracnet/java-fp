@@ -1,6 +1,4 @@
 /*
  * JAVA Functional Programming (JAVA-FP)
- *
  * htp://www.github.com/yracnet/java-fp
- * 
  */
