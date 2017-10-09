@@ -9,6 +9,7 @@ import dev.yracnet.fp.modelo.Cliente.Genero;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -22,23 +23,14 @@ public class Run03 {
 		Cliente c = new Cliente("Rolando", "rolando@gmail.com", Genero.MASCULINO);
 		Cliente d = new Cliente("Ximena", "ximena@hotmail.com", Genero.FEMENINO);
 		List<Cliente> clienteList = Arrays.asList(a, b, c, d);
-		
-		System.out.println("Listado de correos");
-		List<String> clienteListA = filtrarCliente(clienteList, Genero.MASCULINO, null);
+
+		System.out.println("Listado de cliente ");
+		List<Cliente> clienteListA = clienteList.stream()
+										.filter(x -> x.getGenero() == Genero.FEMENINO)
+										.filter(x -> x.getCorreo().endsWith("gmail.com"))
+										.collect(Collectors.toList());
 		clienteListA.forEach(System.out::println);
 
-	}
-
-	private static List<String> filtrarCliente(List<Cliente> clienteList, Genero genero, String correo) {
-		List<String> resultList = new ArrayList<>();
-		for (Cliente cliente : clienteList) {
-			if (cliente.getGenero() == genero) {
-				if (correo == null || cliente.getCorreo().endsWith(correo)) {
-					resultList.add(cliente.getCorreo());
-				}
-			}
-		}
-		return resultList;
 	}
 
 }
