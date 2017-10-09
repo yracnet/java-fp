@@ -29,7 +29,12 @@ public class Run02Poo {
 		Filtro f1 = new GeneroFiltro(Genero.MASCULINO, GeneroFiltro.Oper.EQ);
 
 		System.out.println("Masculino & all");
-		List<Cliente> clienteListA = filtrarCliente(clienteList, f1);
+		List<Cliente> clienteListA = filtrarCliente(clienteList, f1, new Filtro<Cliente>() {
+			@Override
+			public boolean incluir(Cliente c) {
+				return c.getNombre() != null && c.getNombre().contains("o");
+			}
+		});
 		clienteListA.forEach(System.out::println);
 
 		Filtro f2 = new GeneroFiltro(Genero.FEMENINO, GeneroFiltro.Oper.EQ);
