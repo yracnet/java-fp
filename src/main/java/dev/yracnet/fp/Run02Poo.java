@@ -28,7 +28,7 @@ public class Run02Poo {
 
 		Filtro f1 = new GeneroFiltro(Genero.MASCULINO, GeneroFiltro.Oper.EQ);
 
-		System.out.println("Masculino & all");
+		System.out.println("Masculino & Nombre contiene la letra 'o'");
 		List<Cliente> clienteListA = filtrarCliente(clienteList, f1, new Filtro<Cliente>() {
 			@Override
 			public boolean incluir(Cliente c) {
